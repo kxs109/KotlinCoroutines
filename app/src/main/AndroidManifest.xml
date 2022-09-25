@@ -2,6 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.kxs109.kotlincoroutines">
+    <uses-permission android:name="android.permission.BLUETOOTH" />
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+
+    <!-- 照相的特征 -->
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
+    <!-- 照相的权限 -->
+    <uses-permission android:name="android.permission.CAMERA" />
 
     <application
         android:allowBackup="true"
@@ -14,7 +29,7 @@
         android:theme="@style/Theme.KotlinCoroutines"
         tools:targetApi="31">
         <activity
-            android:name=".MainActivity"
+            android:name=".workmanager.WorkManagerActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -22,6 +37,15 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <!--<receiver
+            android:name=".workmanager.CameraReceiver"
+            android:enabled="true" >
+            <intent-filter android:priority="2147483647" >
+                <action android:name="android.hardware.action.NEW_PICTURE" />
+                <data android:mimeType="image/*" />
+            </intent-filter>
+        </receiver>-->
     </application>
 
 </manifest>
